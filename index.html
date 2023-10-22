@@ -76,46 +76,50 @@
         <ul style="list-style-type:none">
             <li>
                
-                <button onclick="copyToClipboard('ytspeed')"> <span>YT Speed</span></button>
+                <button onclick="copyToClipboard('ytspeed','YT Speed')"> <span>YT Speed</span></button>
             </li>
             <li>
               
-                <button onclick="copyToClipboard('ytthumb')">  <span>YT Thumbnail Image</span></button>
+                <button onclick="copyToClipboard('ytthumb','YT Thumbnail Image')">  <span>YT Thumbnail Image</span></button>
             </li>
 
             <li>
                
-                <button onclick="copyToClipboard('yt_raw')"> <span>YT Video Raw</span></button>
+                <button onclick="copyToClipboard('yt_raw','YT Video Raw')"> <span>YT Video Raw</span></button>
             </li>
             <li>
                
-                <button onclick="copyToClipboard('ytaudio_invid')"> <span>YT Listen</span></button>
+                <button onclick="copyToClipboard('ytaudio_invid','YT Listen')"> <span>YT Listen</span></button>
             </li>
             <li>
              
-                <button onclick="copyToClipboard('ytcourselist')">   <span>YT Course List</span></button>
+                <button onclick="copyToClipboard('ytcourselist','YT Course List')">   <span>YT Course List</span></button>
             </li>
             <li>
               
-                <button onclick="copyToClipboard('ytrelaxlist')">  <span>YT Relax List</span></button>
+                <button onclick="copyToClipboard('ytrelaxlist','YT Relax List')">  <span>YT Relax List</span></button>
             </li>
             <li>
               
-                <button onclick="copyToClipboard('ytwatch_invid')">  <span>YT Watch Lite</span></button>
+                <button onclick="copyToClipboard('ytwatch_invid','YT Watch Lite')">  <span>YT Watch Lite</span></button>
             </li>
         </ul>
         
 
        
         <textarea style="width:100%" id="copyText" ></textarea>
+        <p>Drag me to BookmarkBar</p>
+        <a href="" id="lnkScript"></a>
         
     </div>
 
     <script>
-       function copyToClipboard(textId) {
+       function copyToClipboard(textId,title) {
 
             const copyText = document.getElementById("copyText");
             copyText.value='javascript:void(document.head.appendChild(document.createElement("script")).src="https://cdn.jsdelivr.net/gh/nk-gears/bookmarklets/' + textId+'.js")';
+            document.getElementById('lnkScript').href=copyText.value;
+            document.getElementById('lnkScript').innerHTML=title;
             if (document.queryCommandSupported("copy")) {
                 // For modern browsers, use the Clipboard API
                 copyText.select();
