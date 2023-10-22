@@ -5,31 +5,7 @@
     <title>Bookmarklets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-.styled-table {
-    border-collapse: collapse;
-
-    font-size: 0.9em;
-    font-family: sans-serif;
-
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
+ 
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -78,31 +54,57 @@
                 font-size: 14px;
             }
         }
+        ol {
+        list-style-type: decimal;
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+    }
+
+    li {
+        margin-bottom: 10px; /* Adjust the margin as needed */
+    }
+
+    span {
+        margin-right: 10px; /* Adjust the spacing between text and button */
+    }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Bookmarklets</h1>
 
+        <ul style="list-style-type:none">
+            <li>
+               
+                <button onclick="copyToClipboard('ytspeed')"> <span>YT Speed</span></button>
+            </li>
+            <li>
+              
+                <button onclick="copyToClipboard('ytthumb')">  <span>YT Thumbnail Image</span></button>
+            </li>
+
+            <li>
+               
+                <button onclick="copyToClipboard('yt_raw')"> <span>YT Video Raw</span></button>
+            </li>
+            <li>
+               
+                <button onclick="copyToClipboard('ytaudio_invid')"> <span>YT Listen</span></button>
+            </li>
+            <li>
+             
+                <button onclick="copyToClipboard('ytcourselist')">   <span>YT Course List</span></button>
+            </li>
+            <li>
+              
+                <button onclick="copyToClipboard('ytrelaxlist')">  <span>YT Relax List</span></button>
+            </li>
+            <li>
+              
+                <button onclick="copyToClipboard('ytwatch_invid')">  <span>YT Watch Lite</span></button>
+            </li>
+        </ul>
         
-       <table style="width:100%" class="styled-table">
-        <tr>
-            <td>
-                YT Speed
-            </td>
-            <td>
-                <button onclick="copyToClipboard('ytspeed')">Copy Bookmarklet</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                YT Thumb
-            </td>
-            <td>
-                <button onclick="copyToClipboard('ytthumb')">Copy Bookmarklet</button>
-            </td>
-        </tr>
-       </table>
 
        
         <textarea style="width:100%" id="copyText" ></textarea>
