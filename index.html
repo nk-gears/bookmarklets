@@ -5,6 +5,31 @@
     <title>Bookmarklets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table {
+    border-collapse: collapse;
+
+    font-size: 0.9em;
+    font-family: sans-serif;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -59,10 +84,57 @@
     <div class="container">
         <h1>Bookmarklets</h1>
 
-        Show All  Bookmarklets
-      
+        
+       <table style="width:100%" class="styled-table">
+        <tr>
+            <td>
+                YT Speed
+            </td>
+            <td>
+                <button onclick="copyToClipboard('ytspeed')">Copy Bookmarklet</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                YT Thumb
+            </td>
+            <td>
+                <button onclick="copyToClipboard('ytthumb')">Copy Bookmarklet</button>
+            </td>
+        </tr>
+       </table>
+
+       
+        <textarea style="width:100%" id="copyText" ></textarea>
+        
     </div>
 
-  
+    <script>
+       function copyToClipboard(textId) {
+
+            const copyText = document.getElementById("copyText");
+            copyText.value='javascript:void(document.head.appendChild(document.createElement("script")).src="https://cdn.jsdelivr.net/gh/nk-gears/bookmarklets/' + textId+'.js")';
+            if (document.queryCommandSupported("copy")) {
+                // For modern browsers, use the Clipboard API
+                copyText.select();
+                document.execCommand("copy");
+                //alert("Copied to clipboard: " + copyText.value);
+            } else {
+                // For older browsers, fall back to manual selection and alert the user
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); // For mobile devices
+                try {
+                    document.execCommand("copy");
+                   // alert("Copied to clipboard: " + copyText.value);
+                } catch (err) {
+                    //alert("Copy to clipboard is not supported in this browser. Please select and copy the text manually.");
+                }
+            }
+        }
+
+    </script>
+
+<br/><br/><br/><br/><br/>
+    <a target="_blank" href="https://cdn.jsdelivr.net/gh/nk-gears/bookmarklets/index.html" >Source</a>
 </body>
 </html>
